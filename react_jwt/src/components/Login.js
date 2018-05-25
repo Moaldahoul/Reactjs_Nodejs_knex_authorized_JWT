@@ -7,7 +7,8 @@ class Login extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: ''
         };
         this.change = this.change.bind(this);
         this.submit = this.submit.bind(this);
@@ -26,21 +27,25 @@ class Login extends React.Component {
         }).then(res => {
             localStorage.setItem('cool-jwt', res.data);
             this.props.history.push('/Protected');
-        });
+        }).catch(()=> this.setState({
+            error: true
+        }));
     }
 
     render() {
+        const { error } = this.state;
         return (
             <div>
-                <from onSubmit={e=> this.submit(e)}  >
-                <label>Email</label> <input type="text" name="email" 
-                                            onChange={e => this.change(e)} 
-                                            value={this.state.email}  />
-                <label>Password</label> <input type="password" name="password" 
-                                                onChange={e => this.change(e)} 
-                                                value={this.state.password} />
-                <button type="submit"> Submit </button> 
+                <from onSubmit={ e => this.submit(e)}  >
+                <p><label>Email</label> <input type="text" name="email" 
+                                            onChange={e => this.change(e)} /></p>
+                <p><label>Password</label> <input type="password" name="password" 
+                                                onChange={e => this.change(e)}/></p>
+               <p><button type="submit"> Submit </button></p> 
                 </from>
+
+                {error && <p>Invalid credentials</p>}
+
             </div>
         );
     }

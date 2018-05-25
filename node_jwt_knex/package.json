@@ -1,0 +1,28 @@
+{
+  "name": "jwt_nodejs_express",
+  "version": "1.0.0",
+  "description": "Authentication using JWT\"Json Web Token\"in Nodejs Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "Mohamed Aldahoul",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "bookshelf": "^0.13.3",
+    "bookshelf-secure-password": "^3.1.0",
+    "dot": "^1.1.2",
+    "dotenv": "^5.0.1",
+    "env": "0.0.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "knex": "^0.14.6",
+    "nodemon": "^1.17.5",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.4.3"
+  }
+}
